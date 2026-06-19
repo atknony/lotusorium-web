@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: lotusorium-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lotusorium
+      POSTGRES_PASSWORD: lotusorium_dev_pw
+      POSTGRES_DB: lotusorium
+    ports:
+      - '5432:5432'
+    volumes:
+      - lotusorium_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U lotusorium -d lotusorium']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  lotusorium_pgdata:

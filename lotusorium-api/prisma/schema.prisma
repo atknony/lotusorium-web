@@ -1,0 +1,285 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────────────────────
+// ENUMS
+// ─────────────────────────────────────────────────────────────
+enum AdminRole {
+  super_admin
+  editor
+}
+
+enum ProductStatus {
+  draft
+  published
+  archived
+}
+
+enum AttributeDataType {
+  text
+  number
+  boolean
+  enum
+  multi_enum
+}
+
+enum FulfillmentChannel {
+  trendyol
+  onsite
+}
+
+enum ContentStatus {
+  draft
+  published
+  archived
+}
+
+// ─────────────────────────────────────────────────────────────
+// AUTH / ADMIN
+// ─────────────────────────────────────────────────────────────
+model AdminUser {
+  id           String    @id @default(uuid()) @db.Uuid
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  name         String
+  role         AdminRole @default(editor)
+  isActive     Boolean   @default(true) @map("is_active")
+  lastLoginAt  DateTime? @map("last_login_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  refreshTokens RefreshToken[]
+  blogPosts     BlogPost[]
+
+  @@map("admin_user")
+}
+
+model RefreshToken {
+  id          String    @id @default(uuid()) @db.Uuid
+  adminUserId String    @map("admin_user_id") @db.Uuid
+  tokenHash   String    @unique @map("token_hash")
+  familyId    String    @map("family_id") @db.Uuid
+  expiresAt   DateTime  @map("expires_at")
+  revokedAt   DateTime? @map("revoked_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  adminUser AdminUser @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+
+  @@index([adminUserId])
+  @@index([familyId])
+  @@map("refresh_token")
+}
+
+// ─────────────────────────────────────────────────────────────
+// CATALOG CORE
+// ─────────────────────────────────────────────────────────────
+model Category {
+  id          String  @id @default(uuid()) @db.Uuid
+  name        String
+  slug        String  @unique
+  description String?
+  parentId    String? @map("parent_id") @db.Uuid
+  imageUrl    String? @map("image_url")
+  sortOrder   Int     @default(0) @map("sort_order")
+  isActive    Boolean @default(true) @map("is_active")
+
+  metaTitle       String? @map("meta_title")
+  metaDescription String? @map("meta_description")
+  ogImage         String? @map("og_image")
+  canonicalUrl    String? @map("canonical_url")
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  parent     Category?             @relation("CategoryTree", fields: [parentId], references: [id])
+  children   Category[]            @relation("CategoryTree")
+  attributes AttributeDefinition[]
+  products   Product[]
+
+  @@index([parentId])
+  @@map("category")
+}
+
+model AttributeDefinition {
+  id           String            @id @default(uuid()) @db.Uuid
+  categoryId   String            @map("category_id") @db.Uuid
+  key          String
+  label        String
+  dataType     AttributeDataType @map("data_type")
+  unit         String?
+  options      Json?
+  isRequired   Boolean           @default(false) @map("is_required")
+  isFilterable Boolean           @default(false) @map("is_filterable")
+  sortOrder    Int               @default(0) @map("sort_order")
+  createdAt    DateTime          @default(now()) @map("created_at")
+  updatedAt    DateTime          @updatedAt @map("updated_at")
+
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([categoryId, key])
+  @@index([categoryId])
+  @@map("attribute_definition")
+}
+
+model Product {
+  id                 String             @id @default(uuid()) @db.Uuid
+  categoryId         String             @map("category_id") @db.Uuid
+  name               String
+  slug               String             @unique
+  shortDescription   String?            @map("short_description")
+  description        String?
+  brand              String             @default("Lotusorium")
+  sku                String?
+  status             ProductStatus      @default(draft)
+  attributes         Json               @default("{}")
+  trendyolUrl        String?            @map("trendyol_url")
+  fulfillmentChannel FulfillmentChannel @default(trendyol) @map("fulfillment_channel")
+  isFeatured         Boolean            @default(false) @map("is_featured")
+  featuredSortOrder  Int?               @map("featured_sort_order")
+  priceAmount        Decimal?           @map("price_amount") @db.Decimal(12, 2)
+  priceCurrency      String?            @map("price_currency") @db.VarChar(3)
+
+  metaTitle       String? @map("meta_title")
+  metaDescription String? @map("meta_description")
+  ogImage         String? @map("og_image")
+  canonicalUrl    String? @map("canonical_url")
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  category   Category           @relation(fields: [categoryId], references: [id])
+  images     ProductImage[]
+  clicks     RedirectClick[]
+  clickStats ProductClickStats?
+
+  @@index([categoryId])
+  @@index([status])
+  @@index([isFeatured, featuredSortOrder])
+  @@map("product")
+}
+
+model ProductImage {
+  id                 String   @id @default(uuid()) @db.Uuid
+  productId          String   @map("product_id") @db.Uuid
+  cloudinaryPublicId String   @map("cloudinary_public_id")
+  url                String
+  altText            String?  @map("alt_text")
+  width              Int?
+  height             Int?
+  sortOrder          Int      @default(0) @map("sort_order")
+  isPrimary          Boolean  @default(false) @map("is_primary")
+  createdAt          DateTime @default(now()) @map("created_at")
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@map("product_image")
+}
+
+// ─────────────────────────────────────────────────────────────
+// ANALYTICS
+// ─────────────────────────────────────────────────────────────
+model RedirectClick {
+  id        String   @id @default(uuid()) @db.Uuid
+  productId String   @map("product_id") @db.Uuid
+  clickedAt DateTime @default(now()) @map("clicked_at")
+  referrer  String?
+  userAgent String?  @map("user_agent")
+  ipHash    String?  @map("ip_hash")
+  sessionId String?  @map("session_id")
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@index([clickedAt])
+  @@map("redirect_click")
+}
+
+model ProductClickStats {
+  productId     String    @id @map("product_id") @db.Uuid
+  totalClicks   Int       @default(0) @map("total_clicks")
+  clicks7d      Int       @default(0) @map("clicks_7d")
+  clicks30d     Int       @default(0) @map("clicks_30d")
+  lastClickedAt DateTime? @map("last_clicked_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("product_click_stats")
+}
+
+// ─────────────────────────────────────────────────────────────
+// CONTENT
+// ─────────────────────────────────────────────────────────────
+model BlogPost {
+  id          String        @id @default(uuid()) @db.Uuid
+  title       String
+  slug        String        @unique
+  excerpt     String?
+  body        String?
+  coverImage  String?       @map("cover_image_url")
+  authorId    String?       @map("author_id") @db.Uuid
+  status      ContentStatus @default(draft)
+  publishedAt DateTime?     @map("published_at")
+  tags        String[]      @default([])
+
+  metaTitle       String? @map("meta_title")
+  metaDescription String? @map("meta_description")
+  ogImage         String? @map("og_image")
+  canonicalUrl    String? @map("canonical_url")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  author AdminUser? @relation(fields: [authorId], references: [id])
+
+  @@index([status, publishedAt])
+  @@map("blog_post")
+}
+
+// ─────────────────────────────────────────────────────────────
+// AUDIT
+// ─────────────────────────────────────────────────────────────
+// Append-only log of admin mutations. Intentionally has NO relation to
+// AdminUser: the row must survive the actor's deletion, so the actor's id +
+// email are snapshotted as plain columns.
+model AuditLog {
+  id          String   @id @default(uuid()) @db.Uuid
+  adminUserId String?  @map("admin_user_id") @db.Uuid
+  actorEmail  String?  @map("actor_email")
+  action      String
+  method      String
+  path        String
+  statusCode  Int      @map("status_code")
+  ipHash      String?  @map("ip_hash")
+  userAgent   String?  @map("user_agent")
+  metadata    Json?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([adminUserId])
+  @@index([createdAt])
+  @@map("audit_log")
+}
+
+// ─────────────────────────────────────────────────────────────
+// RESERVED: FUTURE E-COMMERCE
+// Uncomment + run `prisma migrate dev` when transitioning to on-site checkout.
+// Product already has priceAmount, priceCurrency, fulfillmentChannel.
+//
+// model ProductVariant   { ... product_id, sku, price, stock, options Json }
+// model Customer         { ... distinct from AdminUser, own auth }
+// model Cart             { ... customer_id, status }
+// model CartItem         { ... cart_id, variant_id, qty, unit_price }
+// model Order            { ... customer_id, totals, status }
+// model OrderItem        { ... order_id, variant_id, qty, unit_price }
+// model Payment          { ... order_id, provider, status, amount }
+// model ShippingAddress  { ... customer_id, lines... }
+// ─────────────────────────────────────────────────────────────
