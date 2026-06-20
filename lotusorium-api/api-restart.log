@@ -1,0 +1,91 @@
+
+> lotusorium-api@0.0.1 start:dev
+> nest start --watch
+
+[2J[3J[H[[90m19:13:00[0m] Starting compilation in watch mode...
+
+[[90m19:13:04[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTerminusModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFeaturedModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPublicModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHealthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuditModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSeoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAdminUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCategoriesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAttributesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mProductsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAnalyticsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMediaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/api/health} (version: Neutral):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} (version: Neutral) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/refresh, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAdminUsersController {/api/admin/users} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCategoriesController {/api/admin/categories} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAttributesController {/api/admin/categories/:categoryId/attributes} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:categoryId/attributes, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:categoryId/attributes, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:categoryId/attributes/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:categoryId/attributes/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProductsController {/api/admin/products} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:id/restore, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMediaController {/api/admin/media} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/media/sign, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProductImagesController {/api/admin/products/:productId/images} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images/reorder, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images/:imageId, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images/:imageId, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFeaturedController {/api/admin/featured} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/featured, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/featured, PUT} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPublicProductsController {/api/products} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/products, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/products/:slug, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPublicCategoriesController {/api/categories} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/categories, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/categories/:slug, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPublicFeaturedController {/api/featured} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/featured, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mClickController {/api/products} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/products/:id/click, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAnalyticsController {/api/admin} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/dashboard, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/analytics/clicks, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/analytics/refresh, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSeoController {/api/seo} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/seo/sitemap.xml, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/seo/feed.json, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuditController {/api/admin/audit-logs} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/audit-logs, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +0ms[39m
+[32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mLotusorium API on http://localhost:3000[39m

@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Lotusorium — "Warm Organic Minimalism"
+ * Cream / clay / sage palette. Light-first, boutique-premium.
+ * Semantic tokens follow the shadcn/ui naming so its components drop in later.
+ */
+:root {
+  --radius: 0.75rem;
+
+  /* Surfaces */
+  --background: #faf7f2; /* warm cream */
+  --foreground: #2a2521; /* warm near-black */
+  --card: #fffdfa;
+  --card-foreground: #2a2521;
+  --popover: #fffdfa;
+  --popover-foreground: #2a2521;
+
+  /* Brand */
+  --primary: #97604a; /* clay */
+  --primary-foreground: #fbf6f0;
+  --secondary: #ece3d8; /* warm sand */
+  --secondary-foreground: #4a4137;
+  --accent: #7f8e6b; /* sage */
+  --accent-foreground: #fbf8f2;
+
+  /* Neutrals */
+  --muted: #f0e9df;
+  --muted-foreground: #7a6e60;
+
+  /* Feedback */
+  --destructive: #b3402f;
+  --destructive-foreground: #fff7f4;
+
+  /* Lines & focus */
+  --border: #e5dbcd;
+  --input: #e5dbcd;
+  --ring: #97604a;
+
+  /* Raw palette (for bespoke storefront accents) */
+  --clay: #97604a;
+  --clay-soft: #b98368;
+  --sage: #7f8e6b;
+  --sand: #ece3d8;
+  --cream: #faf7f2;
+}
+
+.dark {
+  --background: #211d19;
+  --foreground: #f2ece4;
+  --card: #2a2521;
+  --card-foreground: #f2ece4;
+  --popover: #2a2521;
+  --popover-foreground: #f2ece4;
+  --primary: #c08a6f;
+  --primary-foreground: #211d19;
+  --secondary: #3a342d;
+  --secondary-foreground: #ece3d8;
+  --accent: #9aa886;
+  --accent-foreground: #211d19;
+  --muted: #332e28;
+  --muted-foreground: #b3a797;
+  --destructive: #d4624f;
+  --destructive-foreground: #fff7f4;
+  --border: #3d362f;
+  --input: #3d362f;
+  --ring: #c08a6f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-clay: var(--clay);
+  --color-clay-soft: var(--clay-soft);
+  --color-sage: var(--sage);
+  --color-sand: var(--sand);
+  --color-cream: var(--cream);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* Respect iOS safe areas for the mobile-first shell. */
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+  }
+}
+
+@layer utilities {
+  /* Reusable boutique helpers */
+  .text-balance {
+    text-wrap: balance;
+  }
+  .tracking-luxe {
+    letter-spacing: 0.18em;
+  }
+  /* Hide scrollbars on horizontal rails / swipe carousels. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
