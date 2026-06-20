@@ -89,3 +89,165 @@
 [32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/audit-logs, GET} (version: 1) route[39m[38;5;3m +0ms[39m
 [32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +0ms[39m
 [32m[Nest] 54036  - [39m20.06.2026 19:13:05 [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mLotusorium API on http://localhost:3000[39m
+[2J[3J[H[[90m19:53:14[0m] File change detected. Starting incremental compilation...
+
+[[90m19:53:14[0m] Found 0 errors. Watching for file changes.
+
+node:internal/modules/cjs/loader:1459
+  throw err;
+  ^
+
+Error: Cannot find module 'c:\Users\ataon\webProjects\lotus\lotusorium-web\lotusorium-api\dist\main'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v24.14.0
+[2J[3J[H[[90m22:09:36[0m] File change detected. Starting incremental compilation...
+
+[[90m22:09:41[0m] Found 0 errors. Watching for file changes.
+
+[2J[3J[H[[90m22:09:42[0m] File change detected. Starting incremental compilation...
+
+[[90m22:09:43[0m] Found 0 errors. Watching for file changes.
+
+[2J[3J[H[[90m22:09:43[0m] File change detected. Starting incremental compilation...
+
+[[90m22:09:43[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTerminusModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFeaturedModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPublicModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHealthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuditModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSeoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAdminUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCategoriesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAttributesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mProductsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAnalyticsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMediaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/api/health} (version: Neutral):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} (version: Neutral) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/refresh, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAdminUsersController {/api/admin/users} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCategoriesController {/api/admin/categories} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAttributesController {/api/admin/categories/:categoryId/attributes} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:categoryId/attributes, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:categoryId/attributes, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:categoryId/attributes/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/categories/:categoryId/attributes/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProductsController {/api/admin/products} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:id, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:id, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:id, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:id/restore, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMediaController {/api/admin/media} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/media/sign, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProductImagesController {/api/admin/products/:productId/images} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images, POST} (version: 1) route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images/reorder, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images/:imageId, PATCH} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/products/:productId/images/:imageId, DELETE} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFeaturedController {/api/admin/featured} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/featured, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/featured, PUT} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPublicProductsController {/api/products} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/products, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/products/:slug, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPublicCategoriesController {/api/categories} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/categories, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/categories/:slug, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPublicFeaturedController {/api/featured} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/featured, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mClickController {/api/products} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/products/:id/click, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAnalyticsController {/api/admin} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/dashboard, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/analytics/clicks, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/analytics/refresh, POST} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSeoController {/api/seo} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/seo/sitemap.xml, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/seo/feed.json, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuditController {/api/admin/audit-logs} (version: 1):[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/audit-logs, GET} (version: 1) route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +0ms[39m
+[32m[Nest] 28252  - [39m20.06.2026 22:09:45 [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mLotusorium API on http://localhost:3000[39m
+[2J[3J[H[[90m23:28:32[0m] File change detected. Starting incremental compilation...
+
+[[90m23:28:32[0m] Found 0 errors. Watching for file changes.
+
+node:internal/modules/cjs/loader:1459
+  throw err;
+  ^
+
+Error: Cannot find module 'c:\Users\ataon\webProjects\lotus\lotusorium-web\lotusorium-api\dist\main'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v24.14.0
+[2J[3J[H[[90m23:28:34[0m] File change detected. Starting incremental compilation...
+
+[[90m23:28:36[0m] Found 0 errors. Watching for file changes.
+
+node:net:1948
+    const ex = new UVExceptionWithHostPort(err, 'listen', address, port);
+               ^
+
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1948:16)
+    at listenInCluster (node:net:2005:12)
+    at Server.listen (node:net:2110:7)
+    at ExpressAdapter.listen (c:\Users\ataon\webProjects\lotus\lotusorium-web\lotusorium-api\node_modules\@nestjs\platform-express\adapters\express-adapter.js:115:32)
+    at c:\Users\ataon\webProjects\lotus\lotusorium-web\lotusorium-api\node_modules\@nestjs\core\nest-application.js:190:30
+    at new Promise (<anonymous>)
+    at NestApplication.listen (c:\Users\ataon\webProjects\lotus\lotusorium-web\lotusorium-api\node_modules\@nestjs\core\nest-application.js:180:16)
+    at async bootstrap (c:\Users\ataon\webProjects\lotus\lotusorium-web\lotusorium-api\src\main.ts:61:3) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+
+Node.js v24.14.0

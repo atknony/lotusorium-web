@@ -15,7 +15,7 @@ export function ProductCard({ product, priority, sizes }: ProductCardProps) {
   return (
     <Link
       href={`/urunler/${product.slug}`}
-      className="group block focus-visible:outline-none"
+      className="group block transition-transform duration-200 active:scale-[0.98] focus-visible:outline-none motion-reduce:transition-none motion-reduce:active:scale-100"
     >
       <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-secondary ring-1 ring-border/60 transition-shadow group-hover:shadow-md group-focus-visible:ring-2 group-focus-visible:ring-ring">
         <ProductImage

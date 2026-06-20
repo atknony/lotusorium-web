@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/storefront/container";
+import { Reveal } from "@/components/storefront/reveal";
 import { SectionHeading } from "@/components/storefront/section-heading";
 import { ProductCard } from "@/components/storefront/product-card";
 import { CategoryCard } from "@/components/storefront/category-card";
@@ -55,37 +56,41 @@ export default async function HomePage() {
       {/* Featured */}
       {featured.length > 0 && (
         <Container className="py-14">
-          <SectionHeading
-            title="Öne Çıkanlar"
-            subtitle="Sezonun gözde parçaları"
-            href="/urunler?featured=true"
-          />
-          <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 lg:grid lg:grid-cols-4 lg:gap-5 lg:overflow-visible">
-            {featured.map((product, i) => (
-              <div
-                key={product.id}
-                className="w-44 shrink-0 snap-start sm:w-52 lg:w-auto"
-              >
-                <ProductCard product={product} priority={i < 2} />
-              </div>
-            ))}
-          </div>
+          <Reveal>
+            <SectionHeading
+              title="Öne Çıkanlar"
+              subtitle="Sezonun gözde parçaları"
+              href="/urunler?featured=true"
+            />
+            <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 lg:grid lg:grid-cols-4 lg:gap-5 lg:overflow-visible">
+              {featured.map((product, i) => (
+                <div
+                  key={product.id}
+                  className="w-44 shrink-0 snap-start sm:w-52 lg:w-auto"
+                >
+                  <ProductCard product={product} priority={i < 2} />
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </Container>
       )}
 
       {/* Categories */}
       {categories.length > 0 && (
         <Container className="py-14">
-          <SectionHeading
-            title="Kategoriler"
-            subtitle="İlham veren koleksiyonları keşfedin"
-            href="/kategoriler"
-          />
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-5">
-            {categories.map((category) => (
-              <CategoryCard key={category.id} category={category} />
-            ))}
-          </div>
+          <Reveal>
+            <SectionHeading
+              title="Kategoriler"
+              subtitle="İlham veren koleksiyonları keşfedin"
+              href="/kategoriler"
+            />
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-5">
+              {categories.map((category) => (
+                <CategoryCard key={category.id} category={category} />
+              ))}
+            </div>
+          </Reveal>
         </Container>
       )}
     </>

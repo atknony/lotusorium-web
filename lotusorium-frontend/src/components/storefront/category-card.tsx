@@ -7,7 +7,7 @@ export function CategoryCard({ category }: { category: CategoryNode }) {
   return (
     <Link
       href={`/kategoriler/${category.slug}`}
-      className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-xl bg-secondary p-4 ring-1 ring-border/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-xl bg-secondary p-4 ring-1 ring-border/60 transition-transform duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none motion-reduce:active:scale-100"
     >
       <div className="absolute inset-0">
         <ProductImage
