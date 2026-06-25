@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
-// Security headers applied to every response. Kept conservative — the app
-// makes no cross-origin embeds and talks only to its own BFF + Cloudinary.
+// Security headers applied to every response.
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
@@ -14,11 +13,18 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Don't advertise the framework.
   poweredByHeader: false,
 
+  // Render ve Vercel arasındaki iletişim krizini çözmek için:
+  // Aynı anda işlenen sayfa sayısını 1'e indirerek Render API'nı boğmuyoruz.
+  experimental: {
+    // Statik sayfa oluşturma (SSG) sırasında Render API'mize 
+    // sadece tek bir worker ile istek atılmasını sağlar.
+    cpus: 1,
+    workerThreads: false,
+  },
+
   images: {
-    // Next 16: images.domains is deprecated — use remotePatterns.
     remotePatterns: [
       {
         protocol: "https",
@@ -26,7 +32,6 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
-    // Allow a couple of quality steps (Next 16 default is [75] only).
     qualities: [60, 75, 90],
   },
 
