@@ -27,6 +27,39 @@ In production the session cookies (`lts_at`, `lts_rt`) are automatically marked
 `Secure` (they key off `NODE_ENV=production`, which Vercel sets). No extra
 config needed.
 
+## 2a. Build-time API dependency & cold starts (IMPORTANT)
+
+The storefront pages (`/`, `/kategoriler`, product/category pages) are
+**Server Components that fetch the public API at build time** to pre-render
+(SSG/ISR). So the Vercel build calls `API_BASE_URL` while building.
+
+If the API is **unreachable or slow during the build**, the affected page hits
+Vercel's per-page 60s budget and the whole build fails:
+
+```
+Failed to build /(storefront)/page: / ... because it took more than 60 seconds
+```
+
+This is common with **Render's free tier**, which sleeps the service after
+~15 min of inactivity; the first request then cold-starts for ~50s (it accepts
+the TCP connection but doesn't respond, so the fetch *hangs* — `.catch` can't
+help a hang).
+
+**Mitigations (both are in place / recommended):**
+
+1. **`apiServer` has a 20s fetch timeout** (`lib/api/server.ts`, `timeoutMs`).
+   A cold/slow API now *fails fast* instead of hanging, so the build
+   **succeeds** — but those pages prerender with empty/fallback data and only
+   fill in on the next ISR revalidation (`revalidate` 60–300s).
+2. **To ship a build with real data, warm the API first.** Hit
+   `https://<your-api>/api/v1/categories` (or `/health`) and wait for a `200`,
+   *then* trigger the Vercel deploy (Redeploy). The build will capture live data.
+
+To avoid cold starts entirely: keep the API warm with an uptime ping
+(UptimeRobot / a cron hitting `/health` every ~10 min) or move off the free
+tier. On Render, also confirm the service's own env (`DATABASE_URL`,
+`JWT_*`, `CORS_ORIGIN`, `CLOUDINARY_*`) is set — see §4.
+
 ## 3. Image optimization
 
 `next.config.ts` already allows `res.cloudinary.com` via `remotePatterns`. If you

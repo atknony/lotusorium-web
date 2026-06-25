@@ -9,6 +9,15 @@ export interface ApiFetchOptions extends Omit<RequestInit, "cache"> {
   revalidate?: number | false;
   /** Cache tags for on-demand revalidation. */
   tags?: string[];
+  /**
+   * Abort the request after this many ms. A bare `fetch` has no timeout, so a
+   * cold/slow API (e.g. a sleeping Render free instance that accepts the
+   * connection but doesn't respond) would hang indefinitely — which times out
+   * the Vercel build's per-page 60s budget instead of erroring. Failing fast
+   * lets callers fall back gracefully (e.g. `.catch(() => [])`) and ISR refill
+   * once the API is warm. Default 20s.
+   */
+  timeoutMs?: number;
 }
 
 /** Thrown when the API responds with a non-2xx status. */
@@ -30,12 +39,23 @@ export class ApiError extends Error {
  */
 export async function apiServer<T>(
   path: string,
-  { revalidate = 60, tags, headers, ...init }: ApiFetchOptions = {},
+  {
+    revalidate = 60,
+    tags,
+    headers,
+    timeoutMs = 20_000,
+    signal,
+    ...init
+  }: ApiFetchOptions = {},
 ): Promise<T> {
   const url = `${API_BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 
   const res = await fetch(url, {
     ...init,
+    // Honour an explicit caller signal; otherwise bound the request so it can
+    // never hang a build/request. AbortSignal.timeout rejects with a
+    // TimeoutError, which propagates like any other fetch failure.
+    signal: signal ?? AbortSignal.timeout(timeoutMs),
     headers: {
       Accept: "application/json",
       ...headers,
