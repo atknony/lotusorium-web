@@ -32,11 +32,21 @@ jobs:
           API_HEALTH_URL: ${{ vars.API_HEALTH_URL || 'https://lotusorium-api.onrender.com/health' }}
         run: |
           echo "Pinging $API_HEALTH_URL"
-          # --max-time tolerates a cold start (~50s); retry to ride out the wake-up.
-          curl -fsS \
-            --max-time 90 \
-            --retry 4 \
-            --retry-delay 15 \
-            --retry-all-errors \
-            -w '\nHTTP %{http_code} in %{time_total}s\n' \
-            "$API_HEALTH_URL"
+          # A deeply-slept Render free instance can take well over a minute to
+          # cold-start. Give ONE generous window instead of stacking short
+          # timeouts (which just pile up while the instance is mid-boot), and
+          # only retry on a refused connection — not on a slow-but-progressing
+          # response. Warming is best-effort: a miss prints a warning rather than
+          # failing the run (GitHub's schedule is unreliable anyway — see notes).
+          if curl -fsS \
+               --connect-timeout 30 \
+               --max-time 180 \
+               --retry 2 \
+               --retry-delay 20 \
+               --retry-connrefused \
+               -w '\nHTTP %{http_code} in %{time_total}s\n' \
+               "$API_HEALTH_URL"; then
+            echo "API is awake."
+          else
+            echo "::warning::Keep-warm ping did not complete in time (deep cold start?). Best-effort only — use an external uptime monitor (cron-job.org / UptimeRobot) for reliable warming."
+          fi
