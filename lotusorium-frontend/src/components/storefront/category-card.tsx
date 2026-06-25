@@ -3,7 +3,13 @@ import { ArrowUpRight } from "lucide-react";
 import type { CategoryNode } from "@/lib/api/types";
 import { ProductImage } from "./product-image";
 
-export function CategoryCard({ category }: { category: CategoryNode }) {
+export function CategoryCard({
+  category,
+  priority,
+}: {
+  category: CategoryNode;
+  priority?: boolean;
+}) {
   return (
     <Link
       href={`/kategoriler/${category.slug}`}
@@ -13,7 +19,8 @@ export function CategoryCard({ category }: { category: CategoryNode }) {
         <ProductImage
           src={category.imageUrl}
           alt={category.name}
-          sizes="(max-width: 640px) 50vw, 25vw"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          priority={priority}
           className="transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-transparent" />

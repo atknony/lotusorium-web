@@ -73,7 +73,7 @@ export default async function ProductDetailPage(props: { params: Params }) {
     : undefined;
   const attributeRows = buildAttributeRows(
     product.attributes,
-    def?.filterableAttributes,
+    def?.attributeDefinitions,
   );
 
   const price = formatTRY(product.priceAmount, product.priceCurrency ?? "TRY");

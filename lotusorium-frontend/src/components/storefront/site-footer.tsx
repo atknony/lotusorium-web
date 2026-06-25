@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./container";
 
 const COLUMNS = [
@@ -12,10 +13,7 @@ const COLUMNS = [
   },
   {
     title: "Kurumsal",
-    links: [
-      { href: "/hakkimizda", label: "Hakkımızda" },
-      { href: "/iletisim", label: "İletişim" },
-    ],
+    links: [{ href: "/iletisim", label: "İletişim" }],
   },
 ];
 
@@ -25,7 +23,16 @@ export function SiteFooter() {
       <Container className="py-12 pb-28 lg:pb-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-3 lg:col-span-2">
-            <p className="font-serif text-xl text-foreground">Lotusorium</p>
+            <div className="flex items-center gap-2.5">
+              <Image
+                src="/logo.png"
+                alt=""
+                width={28}
+                height={28}
+                className="h-7 w-7 object-contain"
+              />
+              <p className="font-serif text-xl text-foreground">Lotusorium</p>
+            </div>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               El yapımı mumlar, ahşap mutfak dekorasyonu ve mum yapım
               malzemeleri. Tüm ürünlerimiz Trendyol mağazamız üzerinden

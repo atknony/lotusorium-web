@@ -40,11 +40,13 @@ npx prisma studio                                # browser GUI for the database
 npm run prisma:seed                              # seed/ensure the super_admin (idempotent)
 ```
 
-Local Postgres runs in Docker:
+A local Postgres is available in Docker:
 ```bash
 docker compose up -d     # start
 docker compose down      # stop (data persists in lotusorium_pgdata volume)
 ```
+
+**Current `DATABASE_URL` points at a remote Supabase PgBouncer pooler** (`...pooler.supabase.com:6543?pgbouncer=true`), NOT the local Docker Postgres on 5432 (which still exists but holds different data). The remote pooler is the source of the ~0.8–1s baseline per-query latency in dev. See the PrismaService note under "Database design decisions".
 
 ## Architecture
 
@@ -120,7 +122,7 @@ The `AuditLogInterceptor` lives in `common/interceptors/` but is registered as
 
 - All `public/` controllers are `@Public()` (no auth), still throttled, and set `Cache-Control` via `PUBLIC_CACHE_CONTROL` (`public-cache.ts`); Express adds ETags automatically.
 - **Visibility**: public endpoints expose only `status: published` products and `isActive` categories (both `deletedAt: null`). Requesting a draft/missing slug → 404.
-- **Shapes**: responses go through `common/serializers/` — `toPublicProductListItem` (cards), `toPublicProduct` (detail), `toPublicCategory` (with `filterableAttributes`). Never return raw Prisma rows publicly.
+- **Shapes**: responses go through `common/serializers/` — `toPublicProductListItem` (cards), `toPublicProduct` (detail), `toPublicCategory`. Never return raw Prisma rows publicly. `toPublicCategory` exposes **two** attribute views, both ordered by admin `sortOrder`: `attributeDefinitions` (ALL definitions — so the storefront can map a product's saved attribute keys back to human-readable labels/units on the detail page) and `filterableAttributes` (only the `isFilterable` subset, for the facet UI). Exposing only the filterable subset previously caused the product page to render raw/humanized keys for non-filterable attributes.
 - **JSON-LD**: `GET /products/:slug` returns `{ product, jsonLd }` where `jsonLd` is schema.org `Product` built by `buildProductJsonLd()` — for the Next.js layer to inject for SEO/GEO.
 - **Faceted filtering**: `GET /products?attr[key]=value` filters on the `attributes` JSONB via Prisma `path`/`equals`. Values are auto-coerced (boolean/number/string). **This relies on the Express `extended` query parser**, set in `main.ts` (`app.set('query parser', 'extended')`) — Express 5 defaults to `'simple'`, which does NOT parse bracket notation into nested objects. multi_enum faceting is not yet supported.
 - **Pagination**: list endpoints return `{ data, meta: { total, page, limit, totalPages } }`; default limit 20, max 100.
@@ -153,6 +155,8 @@ The `AuditLogInterceptor` lives in `common/interceptors/` but is registered as
 **Trendyol click analytics** are append-only events in `redirect_click` + a `product_click_stats` rollup for fast dashboard reads.
 
 **Future e-commerce** is reserved in schema comments at the bottom of `schema.prisma`. `product` already has `price_amount`, `price_currency`, and `fulfillment_channel` columns so the catalog table never needs restructuring.
+
+**PrismaService is a hot-reload-safe singleton** (`src/prisma/prisma.service.ts`). It still `extends PrismaClient`, but in non-production it caches the instance on `globalThis.__lotusoriumPrisma` and `$disconnect()`s any prior client before adopting the new one. Without this, each `nest start --watch` reload opened a fresh pool of up to 17 connections against the shared Supabase PgBouncer pooler without releasing the old ones, eventually exhausting it (`PrismaClientKnownRequestError: Timed out fetching a new connection from the connection pool`). `main.ts` already calls `enableShutdownHooks()` so `onModuleDestroy → $disconnect()` runs on clean restarts. When optimizing read paths, prefer passing already-resolved ids (e.g. `listProducts(query, knownCategoryId)`) over re-querying — each saved query is one fewer connection checked out.
 
 ### Key constraints
 

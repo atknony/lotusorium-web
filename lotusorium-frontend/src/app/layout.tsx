@@ -30,6 +30,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     siteName: "Lotusorium",
+    images: [
+      { url: "/logo.png", width: 1080, height: 1080, alt: "Lotusorium" },
+    ],
+  },
+  twitter: {
+    // Square brand mark → the compact "summary" card, not large-image.
+    card: "summary",
+    title: "Lotusorium — Butik Mum ve Ahşap Mutfak Dekorasyonu",
+    description:
+      "El yapımı mumlar, ahşap mutfak dekorasyonu ve mum yapım malzemeleri.",
+    images: ["/logo.png"],
   },
 };
 

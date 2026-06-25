@@ -30,8 +30,12 @@ export default async function CategoriesPage() {
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-5">
-          {categories.map((category) => (
-            <CategoryCard key={category.id} category={category} />
+          {categories.map((category, i) => (
+            <CategoryCard
+              key={category.id}
+              category={category}
+              priority={i < 4}
+            />
           ))}
         </div>
       )}

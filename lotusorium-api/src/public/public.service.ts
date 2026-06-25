@@ -25,7 +25,7 @@ function coerceFacet(raw: string | string[]): string | number | boolean {
 export class PublicService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async listProducts(query: PublicProductsQueryDto) {
+  async listProducts(query: PublicProductsQueryDto, knownCategoryId?: string) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
 
@@ -34,7 +34,12 @@ export class PublicService {
       deletedAt: null,
     };
 
-    if (query.category) {
+    // The caller may have already resolved the category (e.g. the category page),
+    // so skip a redundant lookup — each saved query is one fewer connection
+    // checked out of the pool.
+    if (knownCategoryId) {
+      where.categoryId = knownCategoryId;
+    } else if (query.category) {
       const category = await this.prisma.category.findFirst({
         where: { slug: query.category, isActive: true, deletedAt: null },
         select: { id: true },
@@ -151,7 +156,7 @@ export class PublicService {
     if (!category) {
       throw new NotFoundException('Category not found');
     }
-    const products = await this.listProducts({ ...query, category: slug });
+    const products = await this.listProducts(query, category.id);
     return { category: toPublicCategory(category), products };
   }
 

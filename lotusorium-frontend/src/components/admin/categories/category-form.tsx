@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Textarea, Select, CheckboxField } from "../form-fields";
+import { CategoryImageField } from "./category-image-field";
 import { adminKeys, createCategory, updateCategory } from "@/lib/api/admin";
 import type {
   AdminCategory,
@@ -49,6 +50,8 @@ export function CategoryForm({
   const {
     register,
     handleSubmit,
+    setValue,
+    control,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -93,6 +96,8 @@ export function CategoryForm({
       toast.error(err instanceof Error ? err.message : "Kaydedilemedi"),
   });
 
+  const imageUrl = useWatch({ control, name: "imageUrl" }) ?? "";
+
   // A category cannot be its own parent.
   const parentOptions = categories.filter((c) => c.id !== category?.id);
 
@@ -135,13 +140,15 @@ export function CategoryForm({
         </Field>
       </div>
 
-      <Field
-        label="Görsel URL"
-        htmlFor="imageUrl"
-        error={errors.imageUrl?.message}
-      >
-        <Input id="imageUrl" {...register("imageUrl")} placeholder="https://…" />
-      </Field>
+      <CategoryImageField
+        value={imageUrl}
+        onChange={(url) =>
+          setValue("imageUrl", url, { shouldDirty: true, shouldValidate: true })
+        }
+      />
+      {errors.imageUrl?.message && (
+        <p className="text-sm text-destructive">{errors.imageUrl.message}</p>
+      )}
 
       <CheckboxField
         label="Aktif"

@@ -4,7 +4,7 @@ type CategoryWithAttributes = Prisma.CategoryGetPayload<{
   include: { attributes: true };
 }>;
 
-function mapFilterableAttribute(attr: AttributeDefinition) {
+function mapAttributeDefinition(attr: AttributeDefinition) {
   return {
     key: attr.key,
     label: attr.label,
@@ -14,8 +14,16 @@ function mapFilterableAttribute(attr: AttributeDefinition) {
   };
 }
 
-/** Public category shape, including its filterable attribute definitions. */
+/**
+ * Public category shape. Exposes two attribute views, both ordered by the
+ * admin's `sortOrder`:
+ *  - `attributeDefinitions`: every definition, so the storefront can map a
+ *    product's saved attribute keys back to human-readable labels/units on the
+ *    detail page (independent of whether an attribute is filterable).
+ *  - `filterableAttributes`: only the filterable subset, for the facet UI.
+ */
 export function toPublicCategory(category: CategoryWithAttributes) {
+  const definitions = category.attributes.map(mapAttributeDefinition);
   return {
     id: category.id,
     name: category.name,
@@ -28,8 +36,9 @@ export function toPublicCategory(category: CategoryWithAttributes) {
       ogImage: category.ogImage,
       canonicalUrl: category.canonicalUrl,
     },
+    attributeDefinitions: definitions,
     filterableAttributes: category.attributes
       .filter((a) => a.isFilterable)
-      .map(mapFilterableAttribute),
+      .map(mapAttributeDefinition),
   };
 }

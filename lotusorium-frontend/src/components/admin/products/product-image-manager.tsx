@@ -16,40 +16,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "../form-fields";
 import { ConfirmDialog } from "../ui";
 import { BffError } from "@/lib/api/bff-client";
+import { uploadToCloudinary } from "@/lib/cloudinary-upload";
 import {
   addProductImage,
   adminKeys,
   deleteProductImage,
   getProductImages,
   reorderProductImages,
-  signUpload,
   updateProductImage,
 } from "@/lib/api/admin";
 import type { AdminProductImage } from "@/lib/api/types";
-
-interface CloudinaryUploadResult {
-  public_id: string;
-  secure_url: string;
-  width?: number;
-  height?: number;
-}
-
-async function uploadToCloudinary(file: File): Promise<CloudinaryUploadResult> {
-  const sig = await signUpload();
-  const form = new FormData();
-  form.append("file", file);
-  form.append("api_key", sig.apiKey);
-  form.append("timestamp", String(sig.timestamp));
-  form.append("folder", sig.folder);
-  form.append("signature", sig.signature);
-
-  const res = await fetch(
-    `https://api.cloudinary.com/v1_1/${sig.cloudName}/image/upload`,
-    { method: "POST", body: form },
-  );
-  if (!res.ok) throw new Error("Cloudinary yüklemesi başarısız oldu");
-  return res.json() as Promise<CloudinaryUploadResult>;
-}
 
 export function ProductImageManager({ productId }: { productId: string }) {
   const qc = useQueryClient();

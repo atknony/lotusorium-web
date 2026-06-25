@@ -36,6 +36,13 @@ export interface FilterableAttribute {
   options: unknown; // JSON array for enum types
 }
 
+/**
+ * An attribute definition as exposed publicly (same shape as a filterable
+ * attribute). Used to map a product's saved attribute keys to human-readable
+ * labels/units on the detail page, regardless of filterability.
+ */
+export type AttributeDefinition = FilterableAttribute;
+
 /** Item shape in product list / featured responses. */
 export interface ProductListItem {
   id: string;
@@ -115,6 +122,7 @@ export interface CategoryNode {
   description: string | null;
   imageUrl: string | null;
   seo: SeoMeta;
+  attributeDefinitions: AttributeDefinition[];
   filterableAttributes: FilterableAttribute[];
   children: CategoryNode[];
 }
