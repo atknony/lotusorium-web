@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { Container } from "@/components/storefront/container";
 import { ProductGallery } from "@/components/storefront/product-gallery";
 import { BuyButton } from "@/components/storefront/buy-button";
+import { RelatedProducts } from "@/components/storefront/related-products";
 import { ApiError } from "@/lib/api/server";
 import { getCategories, getProductBySlug, getProducts } from "@/lib/api/storefront";
 import { findCategoryBySlug } from "@/lib/categories";
@@ -77,6 +78,14 @@ export default async function ProductDetailPage(props: { params: Params }) {
   );
 
   const price = formatTRY(product.priceAmount, product.priceCurrency ?? "TRY");
+
+  // "Benzer Ürünler": other products from the same category. Over-fetch by one
+  // so excluding the current product still leaves a full rail; cap at 12.
+  const related = product.category
+    ? await getProducts({ category: product.category.slug, limit: 13 })
+        .then((res) => res.data.filter((p) => p.id !== product.id).slice(0, 12))
+        .catch(() => [])
+    : [];
 
   return (
     <Container className="py-6 sm:py-10">
@@ -165,6 +174,8 @@ export default async function ProductDetailPage(props: { params: Params }) {
           )}
         </div>
       </div>
+
+      {related.length > 0 && <RelatedProducts products={related} />}
     </Container>
   );
 }
